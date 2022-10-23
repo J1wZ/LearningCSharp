@@ -1,63 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 
-namespace Lesson4.RealClass
+namespace Lesson4
 {
-    public struct Real
+    public class Real : Number
     {
-        public int Body;
-        public int Tale;
+        protected int RTale;
 
-        public Real()
+        public int Tale
         {
-            this.Body = 0;
-            this.Tale = 0;
+            get { return RTale; }
+            set { RTale = value; }  
+        }
+        public Real(int S, int B, int T) : base(S,B)
+        {
+            this.RTale = T;
         }
 
-        public Real(int a, int b)
+        public Real() : base()
         {
-            this.Body = a;
-            this.Tale = b;
+            this.RTale = 0;
         }
 
-        public void PrintReal()
+        ~Real()
         {
-            Console.WriteLine($"{this.Body},{this.Tale}");
-        }
 
-        public void SumReal(Real b)
-        {
-            var a = new Real(this.Body, this.Tale);
-            Console.WriteLine($"Сумма {a.Body},{a.Tale} и {b.Body},{b.Tale}:");
-            int cup = TaleLen(a.Tale);
-            int a1 = a.Body*cup + a.Tale;
-            int cup1 = TaleLen(b.Tale);
-            int b1 = b.Body*cup1 + b.Tale;
-            a1 = a1 + b1;
-            if (cup < cup1)
-            {
-                cup = cup1;
-            }
-            Real res = new Real(a1 / cup, a1 % cup);
-            res.PrintReal();
-        }
-
-        public void SubReal(Real b)
-        {
-            var a = new Real(this.Body, this.Tale);
-            Console.WriteLine($"Разница {a.Body},{a.Tale} и {b.Body},{b.Tale}:");
-            int cup = TaleLen(a.Tale);
-            int a1 = a.Body*cup + a.Tale;
-            int cup1 = TaleLen(b.Tale);
-            int b1 = b.Body*cup1 + b.Tale;
-            a1 = a1 - b1;
-            
-            if (cup < cup1)
-            {
-                cup = cup1;
-            }
-            Real res = new Real(a1 / cup, a1 % cup);
-            res.PrintReal();
         }
 
         int TaleLen(int a)
@@ -68,7 +39,59 @@ namespace Lesson4.RealClass
                 a = a / 10;
                 i++;
             }
-            return i*10;
+            return i * 10;
+        }
+
+        public new void Sum(Real a, Real b)
+        {
+            Console.WriteLine($"Сумма {a.NSign*a.Body},{a.Tale} и {b.NSign*b.Body},{b.Tale}:");
+            int cup = TaleLen(a.Tale);
+            int a1 = a.NSign * a.Body * cup + a.Tale;
+            int cup1 = TaleLen(b.Tale);
+            int b1 = b.NSign * b.Body * cup1 + b.Tale;
+            a1 = a1 + b1;
+            if (cup < cup1)
+            {
+                cup = cup1;
+            }
+            if (a1 < 0)
+            {
+                this.NSign = -1;
+            }
+            else
+            {
+                this.NSign = 1;
+            }
+            this.NBody = a1 / cup;
+            this.RTale = a1 % cup;
+            this.PrintNum();
+        }
+
+        public new void PrintNum()
+        {
+            Console.WriteLine($"{this.NSign*this.NBody},{this.RTale}");
+        }
+
+        public new void Mult(Real a, Real b)
+        {
+            Console.WriteLine($"Произведение {a.NSign*a.Body},{a.Tale} и {b.NSign*b.Body},{b.Tale}:");
+            int cup = TaleLen(a.Tale);
+            int a1 = a.NSign * a.Body * cup + a.Tale;
+            int cup1 = TaleLen(b.Tale);
+            int b1 = b.NSign * b.Body * cup1 + b.Tale;
+            a1 = a1 * b1;
+            cup = cup*cup1;
+            if (a1 < 0)
+            {
+                this.NSign = -1;
+            }
+            else
+            {
+                this.NSign = 1;
+            }
+            this.NBody = a1 / cup;
+            this.RTale = a1 % cup;
+            this.PrintNum();
         }
     }
 }

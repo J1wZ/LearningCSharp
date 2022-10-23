@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1", "Lesson1\Lesson1.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{236EBDAD-A900-4628-BAEF-CC3ECDFAD815}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson4", "Lesson4\Lesson4.csproj", "{68D741AF-7487-400A-93A6-79CBFE844B52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson4", "Lesson4\Lesson4.csproj", "{68D741AF-7487-400A-93A6-79CBFE844B52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phonebook", "Phonebook\Phonebook.csproj", "{E902B46B-8CD6-4693-80E4-DE5835144960}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{68D741AF-7487-400A-93A6-79CBFE844B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68D741AF-7487-400A-93A6-79CBFE844B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68D741AF-7487-400A-93A6-79CBFE844B52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E902B46B-8CD6-4693-80E4-DE5835144960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E902B46B-8CD6-4693-80E4-DE5835144960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E902B46B-8CD6-4693-80E4-DE5835144960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E902B46B-8CD6-4693-80E4-DE5835144960}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
