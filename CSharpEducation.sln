@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe", "TicTacToe\TicT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson4", "Lesson4\Lesson4.csproj", "{68D741AF-7487-400A-93A6-79CBFE844B52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phonebook", "Phonebook\Phonebook.csproj", "{E902B46B-8CD6-4693-80E4-DE5835144960}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phonebook", "Phonebook\Phonebook.csproj", "{E902B46B-8CD6-4693-80E4-DE5835144960}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animal", "Animal\Animal.csproj", "{512A13A7-7751-4208-B1D5-1C20AE355A70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{E902B46B-8CD6-4693-80E4-DE5835144960}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E902B46B-8CD6-4693-80E4-DE5835144960}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E902B46B-8CD6-4693-80E4-DE5835144960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{512A13A7-7751-4208-B1D5-1C20AE355A70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{512A13A7-7751-4208-B1D5-1C20AE355A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{512A13A7-7751-4208-B1D5-1C20AE355A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{512A13A7-7751-4208-B1D5-1C20AE355A70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

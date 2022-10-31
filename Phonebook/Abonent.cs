@@ -31,6 +31,8 @@ namespace Phonebook
             this.ANumber = Num;
         }
 
+
+        /*
         private static bool FindAbonent(string a)
         {
             StreamReader sr = File.OpenText("Phonebook.txt");
@@ -121,6 +123,6 @@ namespace Phonebook
                 Console.WriteLine(e.Message);
             }
 
-        }
+        } */
     }
 }
