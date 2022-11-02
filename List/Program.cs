@@ -16,8 +16,9 @@ namespace List
             ListInt.Delete(1);
             ListInt.PrintList();
             int id = ListInt.FindIndexOf(2);
-            int Len = ListInt.CountElem();
-            Console.WriteLine($"ID цифры 2:{id}, Количество элементов:{Len}");
+            int Len = ListInt.Count;
+            int Cop = ListInt.Copacity;
+            Console.WriteLine($"ID цифры 2:{id}, Количество элементов:{Len}, Длина Листа {Cop}");
             MyList<string> ListStr = new MyList<string>("Hello, ");
             ListStr.AddValue("World!");
             ListStr.AddValue("How are you?");
@@ -27,9 +28,17 @@ namespace List
             ListStr.AddValue("Teacher");
             ListStr.PrintList();
 
-            id = ListStr.CountElem();
+            id = ListStr.Count;
             Len = ListStr.FindIndexOf("Teacher");
-            Console.WriteLine($"ID Teacher:{Len}, Количество элементов:{id}");
+            Cop = ListStr.Copacity;
+            Console.WriteLine($@"До обрезки:
+ID Teacher:{Len}, Количество элементов:{id}, Длина Листа {Cop}");
+            ListStr.Trim();
+            id = ListStr.Count;
+            Len = ListStr.FindIndexOf("Teacher");
+            Cop = ListStr.Copacity;
+            Console.WriteLine($@"После обрезки:
+ID Teacher:{Len}, Количество элементов:{id}, Длина Листа {Cop}");
         }
     }
 }

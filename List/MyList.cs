@@ -8,7 +8,8 @@ namespace List
 {
     internal class MyList<T>
     {
-
+        public int Count { get; set; }
+        public int Copacity { get; set; }
         public T[] Values;
 
         public T[] Items
@@ -19,32 +20,62 @@ namespace List
 
         public MyList()
         {
-            this.Values = new T[0];
+            this.Values = new T[5];
+            this.Count = 0;
+            this.Copacity = 5;
         }
 
         public MyList(T a)
         {
-            this.Values = new T[1];
+            this.Values = new T[5];
             this.Values[0] = a;
+            this.Count = 1;
+            this.Copacity = 5;
         }
 
-        
+        public void Trim()
+        {
+            try
+            {
+                if (this.Count == 0 || this.Count >= this.Copacity)
+                {
+                    throw new Exception("Не возможно обрезать Лист.");
+                }
+                else
+                {
+                    Array.Resize(ref this.Values, this.Count);
+                    this.Copacity = this.Count;
+                    Console.WriteLine("Лист обрезан.");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Ошибка:{e.Message}");
+            }
+        }
 
         public void AddValue(T a)
         {
-            int id = 0;
-            if (this.Values.Length >= 0)
+            if (this.Count > this.Copacity)
             {
-                Array.Resize(ref this.Values, this.Values.Length + 1);
-                id = this.Values.Length -1;
+                Array.Resize(ref this.Values, this.Copacity + 5);
+                this.Copacity += 5;
             }
-            this.Values[id] = a;
+            if (this.Count == 0)
+            {
+                this.Values[this.Count] = a;
+            }
+            else
+            {
+                this.Values[this.Count] = a;
+            }
+            this.Count++;
             Console.WriteLine("Элемент добавлен.");
         }
 
         public int FindIndexOf(T el)
         {
-            for (int i = 0; i < this.Values.Length; i++)
+            for (int i = 0; i < this.Count; i++)
             {
                 if (this.Values[i].Equals(el))
                 {
@@ -56,7 +87,12 @@ namespace List
 
         public int CountElem()
         {
-            return this.Values.Length;
+            return this.Count;
+        }
+
+        public int GetCopacity()
+        {
+            return this.Copacity;
         }
 
         public void Delete(T el)
@@ -75,7 +111,7 @@ namespace List
             }
             catch(Exception e)
             {
-                Console.WriteLine($"Ощибка:{e.Message}");
+                Console.WriteLine($"Ошибка:{e.Message}");
             }
         }
 
@@ -83,13 +119,13 @@ namespace List
         {
             try
             {
-                if (this.Values.Length < 1)
+                if (this.Count < 1)
                 {
                     throw new Exception("В листе ничего нет.");
                 }
                 else
                 {
-                    for (int i = 0; i < this.CountElem(); i++)
+                    for (int i = 0; i < this.Count; i++)
                     {
                         Console.WriteLine(this.Values[i]);
                     }
@@ -97,7 +133,7 @@ namespace List
             }
             catch(Exception e)
             {
-                Console.WriteLine($"Ощибка:{e.Message}");
+                Console.WriteLine($"Ошибка:{e.Message}");
             }
         }
 
@@ -105,29 +141,32 @@ namespace List
         {
             try
             {
-                if (id < 0 || id >= this.Values.Length)
+                if (id < 0 || id >= this.Count)
                 {
                     throw new Exception("Элемента с таким индексом не существует.");
                 }
                 else
                 {
                     MyList<T> cup = new MyList<T>();
-                    for (int i =0; i < this.Values.Length; i++)
+                    for (int i =0; i < this.Count; i++)
                     {
                         if (i != id)
                         {
-                            Array.Resize(ref cup.Values, cup.Values.Length + 1);
-                            cup.Values[cup.Values.Length - 1] = this.Values[i];
+                            //Array.Resize(ref cup.Values, cup.Values.Length + 1);
+                            //cup.Values[cup.Values.Length - 1] = this.Values[i];
+                            cup.AddValue(this.Values[i]);
                         }
                     }
-                    Array.Resize(ref this.Values, cup.Values.Length);
-                    Array.Copy(cup.Values, this.Values, this.Values.Length);
+                    Array.Resize(ref this.Values, cup.Copacity);
+                    Array.Copy(cup.Values, this.Values, cup.Copacity);
+                    this.Count--;
+                    this.Copacity = cup.Copacity;
                     Console.WriteLine("Элемент удален.");
                 }
             }
             catch(Exception ex)
             {
-                Console.WriteLine($"Ощибка:{ex.Message}");
+                Console.WriteLine($"Ошибка:{ex.Message}");
             }
         }
     }
