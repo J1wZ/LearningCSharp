@@ -35,11 +35,10 @@ namespace List
 
         public void Trim()
         {
-            try
-            {
+          
                 if (this.Count == 0 || this.Count >= this.Copacity)
                 {
-                    throw new Exception("Не возможно обрезать Лист.");
+                    Console.WriteLine("Не возможно обрезать Лист.");
                 }
                 else
                 {
@@ -47,28 +46,20 @@ namespace List
                     this.Copacity = this.Count;
                     Console.WriteLine("Лист обрезан.");
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Ошибка:{e.Message}");
-            }
+            
+          
         }
 
         public void AddValue(T a)
         {
             if (this.Count > this.Copacity)
             {
-                Array.Resize(ref this.Values, this.Copacity + 5);
-                this.Copacity += 5;
+                Array.Resize(ref this.Values, this.Copacity * 2);
+                this.Copacity *= 2;
             }
-            if (this.Count == 0)
-            {
-                this.Values[this.Count] = a;
-            }
-            else
-            {
-                this.Values[this.Count] = a;
-            }
+
+            this.Values[this.Count] = a;
+            
             this.Count++;
             Console.WriteLine("Элемент добавлен.");
         }
@@ -97,31 +88,25 @@ namespace List
 
         public void Delete(T el)
         {
-            try
-            {
+           
                 int Id = this.FindIndexOf(el);
                 if (Id == -1)
                 {
-                    throw new Exception("Такого элемента не существует.");
+                    Console.WriteLine("Такого элемента не существует.");
                 }
                 else
                 {
                     Delete(Id);
                 }
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine($"Ошибка:{e.Message}");
-            }
+            
+     
         }
 
         public void PrintList()
         {
-            try
-            {
                 if (this.Count < 1)
                 {
-                    throw new Exception("В листе ничего нет.");
+                Console.WriteLine("В листе ничего нет.");
                 }
                 else
                 {
@@ -130,20 +115,15 @@ namespace List
                         Console.WriteLine(this.Values[i]);
                     }
                 }
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine($"Ошибка:{e.Message}");
-            }
+            
         }
 
         public void Delete(int id)
         {
-            try
-            {
+
                 if (id < 0 || id >= this.Count)
                 {
-                    throw new Exception("Элемента с таким индексом не существует.");
+                    Console.WriteLine("Элемента с таким индексом не существует.");
                 }
                 else
                 {
@@ -152,8 +132,6 @@ namespace List
                     {
                         if (i != id)
                         {
-                            //Array.Resize(ref cup.Values, cup.Values.Length + 1);
-                            //cup.Values[cup.Values.Length - 1] = this.Values[i];
                             cup.AddValue(this.Values[i]);
                         }
                     }
@@ -163,11 +141,7 @@ namespace List
                     this.Copacity = cup.Copacity;
                     Console.WriteLine("Элемент удален.");
                 }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine($"Ошибка:{ex.Message}");
-            }
+            
         }
     }
 }
