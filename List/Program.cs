@@ -19,15 +19,14 @@ namespace List
             int Len = ListInt.Count;
             int Cop = ListInt.Copacity;
             Console.WriteLine($"ID цифры 2:{id}, Количество элементов:{Len}, Длина Листа {Cop}");
-            MyList<string> ListStr = new MyList<string>("Hello, ");
+            string[] Hello = new string[] {"Hello", "and", "Good morning," };
+            MyList<string> ListStr = new MyList<string>(Hello);
             ListStr.AddValue("World!");
             ListStr.AddValue("How are you?");
             ListStr.PrintList();
-
             ListStr.Delete("World!");
             ListStr.AddValue("Teacher");
             ListStr.PrintList();
-
             id = ListStr.Count;
             Len = ListStr.FindIndexOf("Teacher");
             Cop = ListStr.Copacity;

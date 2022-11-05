@@ -24,13 +24,35 @@ namespace List
             this.Count = 0;
             this.Copacity = 5;
         }
-
-        public MyList(T a)
+        /*
+        public MyList(MyList<T> a) : this(a.Values.ToList()) { }
+        public MyList(T[] a) : this(a.ToList()) { }
+        public MyList(Stack<T> a) : this(a.ToList()) { }
+        public MyList(Queue<T> a) : this(a.ToList()) { }
+        public MyList(List<T> a)
         {
-            this.Values = new T[5];
-            this.Values[0] = a;
-            this.Count = 1;
-            this.Copacity = 5;
+            this.Copacity= a.Count;
+            this.Values = new T[this.Copacity];
+            this.Count = 0;
+            foreach(T i in a)
+            {
+                this.AddValue(i);
+            }
+        }
+        */
+        public MyList(MyList<T> a) : this(a.Values) { }
+        public MyList(List<T> a) : this(a.ToArray()) { }
+        public MyList(Stack<T> a) : this(a.ToArray()) { }
+        public MyList(Queue<T> a) : this(a.ToArray()) { }
+        public MyList(T[] a)
+        {
+            this.Copacity = a.Length;
+            this.Values = new T[this.Copacity];
+            this.Count = 0;
+            foreach (T i in a)
+            {
+                this.AddValue(i);
+            }
         }
 
         public void Trim()
@@ -52,14 +74,13 @@ namespace List
 
         public void AddValue(T a)
         {
-            if (this.Count > this.Copacity)
+            if (this.Count >= this.Copacity)
             {
                 Array.Resize(ref this.Values, this.Copacity * 2);
                 this.Copacity *= 2;
             }
 
             this.Values[this.Count] = a;
-            
             this.Count++;
             Console.WriteLine("Элемент добавлен.");
         }
