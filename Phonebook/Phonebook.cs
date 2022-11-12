@@ -6,8 +6,24 @@ using System.Threading.Tasks;
 
 namespace Phonebook
 {
+    class PhonebookArg
+    {
+        public string Message { get; }
+        public Abonent Dude { get; set; } = null;
+        public PhonebookArg(string mes)
+        {
+            Message = mes;
+        }
+        public PhonebookArg(string message, Abonent dude) : this(message)
+        {
+            Dude = dude;
+        }
+    }
     internal class Phonebook
     {
+        
+        public delegate void PhonebookHelper(Phonebook sender, PhonebookArg e);
+        public event PhonebookHelper? Notify;
         protected Abonent[] PhoneList;
 
         public Abonent[] SomeDudes
@@ -113,7 +129,8 @@ namespace Phonebook
                 {
                     Array.Resize(ref SD.PhoneList, SD.PhoneList.Length + 1);
                     SD.PhoneList[SD.PhoneList.Length-1] = Dude;
-                    Console.WriteLine("Абонент добавлен.");
+                    //Console.WriteLine("Абонент добавлен.");
+                    SD.Notify?.Invoke(SD, new PhonebookArg($"Абонент добавлен.",Dude));
                 }
             }
             catch (Exception e)
@@ -137,7 +154,8 @@ namespace Phonebook
                             WriteAbonentInFile(a);
                         }
                     }
-                Console.WriteLine("Файл обнавлен.");
+                //Console.WriteLine("Файл обнавлен.");
+                SD.Notify?.Invoke(SD, new PhonebookArg($"Файл обнавлен."));
             }
             catch (Exception e)
             {
@@ -180,7 +198,9 @@ namespace Phonebook
                     ReadAbonentFromPhonebook(Smth);
                     Array.Resize(ref SD.PhoneList, Smth.PhoneList.Length);
                     Array.Copy(Smth.PhoneList,SD.PhoneList,SD.PhoneList.Length);
-                    Console.WriteLine("Абонент удален.");
+                    //Console.WriteLine("Абонент удален.");
+                    SD.Notify?.Invoke(SD, new PhonebookArg($"Абонент удален.", Dude));
+
                 }
                 else
                 {
@@ -233,6 +253,7 @@ namespace Phonebook
                     }
                     sr.Close();
                 }
+                SD.Notify?.Invoke(SD, new PhonebookArg($"Файл считан."));
             }
             catch (Exception e)
             {
