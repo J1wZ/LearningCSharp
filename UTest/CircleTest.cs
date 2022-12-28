@@ -3,23 +3,26 @@ namespace UTest
     public class Tests
     {
 
-        [TestCase]
-        public void DotInCircle()
+        [TestCase(0, -1, ExpectedResult = true)]
+        [TestCase(0, 0, ExpectedResult = true)]
+        public bool DotInCircle(int n, int b)
         {
-            var dot = new Circle.Programm.MyCirc(0,-1);
-            Assert.IsTrue(Circle.Programm.MyCirc.GoCircle(dot));
+            var dot = new Circle.Programm.MyCirc(n,b);
+            return Circle.Programm.MyCirc.GoCircle(dot);
         }
-        [TestCase]
-        public void DotNotInCircle()
+        [TestCase(20, 5, ExpectedResult = false)]
+        [TestCase(10, 0, ExpectedResult = false)]
+        public bool DotNotInCircle(int n, int b)
         {
-            var dot = new Circle.Programm.MyCirc(5, 10);
-            Assert.IsFalse(Circle.Programm.MyCirc.GoCircle(dot));
+            var dot = new Circle.Programm.MyCirc(n, b);
+             return Circle.Programm.MyCirc.GoCircle(dot);
         }
-        [TestCase]
-        public void DotIsDouble()
+        [TestCase(0, -1.5, ExpectedResult = true)]
+        [TestCase(10.5, 20.6, ExpectedResult = false)]
+        public bool DotIsDouble(double n, double b)
         {
-            var dot = new Circle.Programm.MyCirc(6.5, 10.1);
-            Assert.IsFalse(Circle.Programm.MyCirc.GoCircle(dot));
+            var dot = new Circle.Programm.MyCirc(n, b);
+            return Circle.Programm.MyCirc.GoCircle(dot);
         }
     }
 }
