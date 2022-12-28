@@ -2,7 +2,7 @@
 
 namespace Circle
 {
-    class Programm
+    public class Programm
     {
         //Это для того чтобы я могла составить тесты
         public class MyCirc
@@ -10,12 +10,12 @@ namespace Circle
             
             public double X { get; set; }
             public double Y { get; set; }
-            MyCirc()
+            public MyCirc()
              {
                 X = 0;
                 Y = 0;
              }
-            MyCirc(double x, double y)
+            public MyCirc(double x, double y)
             {
                 X=x;
                 Y=y;
@@ -24,15 +24,15 @@ namespace Circle
             {
 
             }
-        public static void GoCircle()
+
+            public static void MakeDot()
             {
                 Console.WriteLine("Введите Х координаты точки:");
                 double ax = int.Parse(Console.ReadLine());
                 Console.WriteLine("Введите Y координаты точки:");
                 double ay = int.Parse(Console.ReadLine());
                 MyCirc a = new MyCirc(ax, ay);
-                double axy = Math.Sqrt(Math.Pow(a.X, 2) + Math.Pow(-1 - a.Y, 2));
-                if (axy <= 2)
+                if (GoCircle(a))
                 {
                     Console.WriteLine("Точка лежит в круге");
                 }
@@ -40,14 +40,28 @@ namespace Circle
                 {
                     Console.WriteLine("Точка не лежит в круге");
                 }
+
+            }
+        public static bool GoCircle(MyCirc a)
+            {
+                double axy = Math.Sqrt(Math.Pow(a.X, 2) + Math.Pow(-1 - a.Y, 2));
+                if (axy <= 2)
+                {
+                    return true;
+                   
+                }
+                else
+                {
+                    return false;
+                    
+                }
             }
         }
            
 
             static void Main()
             {
-                MyCirc.GoCircle();
-
+                MyCirc.MakeDot();
             }
         
     }

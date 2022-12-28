@@ -2,13 +2,14 @@
 
 namespace LeapYear
 {
-    class Programm
+    public class Programm
     {
-        static void IsLeapYear()
+
+        public static void Leap()
         {
             Console.WriteLine("Введите год в формате YYYY");
             int a = int.Parse(Console.ReadLine());
-            if (((a % 4==0)&&!(a % 100 ==0)) || (a % 400 == 0))
+            if (IsLeapYear(a))
             {
                 Console.WriteLine($@"Год {a} високосный!");
             }
@@ -16,12 +17,25 @@ namespace LeapYear
             {
                 Console.WriteLine($@"Год {a} не является високосным!");
             }
+            Console.ReadKey();
+        }
+        public static bool IsLeapYear(int a)
+        {
+            if (((a % 4==0)&&!(a % 100 ==0)) || (a % 400 == 0))
+            {
+                return true;
+                
+            }
+            else
+            {
+                return false;
+                
+            }
         }
 
         static void Main()
         {
-            IsLeapYear();
-            Console.ReadKey();
+            Leap();
         }
     }
 }

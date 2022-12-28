@@ -18,6 +18,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Circle\Circle.csproj" />
+    <ProjectReference Include="..\LeapYear\LeapYear.csproj" />
+    <ProjectReference Include="..\PrimaryNum\PrimaryNum.csproj" />
   </ItemGroup>
 
 </Project>

@@ -17,19 +17,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "List", "List\List.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exeption", "Exeption\Exeption.csproj", "{AEA26689-A23D-42B3-9081-EBC93EA4CE09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimaryNum", "PrimaryNum\PrimaryNum.csproj", "{03745C35-0277-48DD-9DEB-F0DFA8021977}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimaryNum", "PrimaryNum\PrimaryNum.csproj", "{03745C35-0277-48DD-9DEB-F0DFA8021977}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeapYear", "LeapYear\LeapYear.csproj", "{70BB7A33-FA13-461C-BF7E-CEC3B66A85FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeapYear", "LeapYear\LeapYear.csproj", "{70BB7A33-FA13-461C-BF7E-CEC3B66A85FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrow", "Arrow\Arrow.csproj", "{60E5935F-37F3-4D7F-845D-F1787D597693}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrow", "Arrow\Arrow.csproj", "{60E5935F-37F3-4D7F-845D-F1787D597693}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Circle", "Circle\Circle.csproj", "{D3642474-FB34-44DF-9890-519819992474}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Circle", "Circle\Circle.csproj", "{D3642474-FB34-44DF-9890-519819992474}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultTable", "MultTable\MultTable.csproj", "{3565B8FF-895F-4EA4-94EF-E7C04E303651}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultTable", "MultTable\MultTable.csproj", "{3565B8FF-895F-4EA4-94EF-E7C04E303651}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortList", "SortList\SortList.csproj", "{8CF5F1ED-56EB-4A35-8F0C-55B603FA927E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortList", "SortList\SortList.csproj", "{8CF5F1ED-56EB-4A35-8F0C-55B603FA927E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email", "Email\Email.csproj", "{CA5F3ECF-CAC8-4B68-B6D9-10611F6B6710}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Email", "Email\Email.csproj", "{CA5F3ECF-CAC8-4B68-B6D9-10611F6B6710}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTest", "UTest\UTest.csproj", "{EF8405A5-2394-4121-B2BF-7638D118BCB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{CA5F3ECF-CAC8-4B68-B6D9-10611F6B6710}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA5F3ECF-CAC8-4B68-B6D9-10611F6B6710}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA5F3ECF-CAC8-4B68-B6D9-10611F6B6710}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF8405A5-2394-4121-B2BF-7638D118BCB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF8405A5-2394-4121-B2BF-7638D118BCB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF8405A5-2394-4121-B2BF-7638D118BCB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF8405A5-2394-4121-B2BF-7638D118BCB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,15 +11,7 @@ namespace MultTable
                 Console.Write(i + "\t"); 
                 for (int j = 1; j <= 10; j++)
                 {
-                    if(i>1)
-                    {
                         Console.Write(i*j + "\t");
-                    }
-                    else
-                    {
-                        Console.Write(j + "\t");
-
-                    }
                 }
                 Console.Write("\n");
             }

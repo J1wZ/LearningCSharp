@@ -2,21 +2,13 @@
 
 namespace PrimaryNum
 {
-    class Programm
+    public class Programm
     {
-        static void IsPrymeNum()
+        public static void MakeThatNum()
         {
-            bool ans = true;
             Console.WriteLine("Введите число  0 ≤ n ≤10000");
             int a = int.Parse(Console.ReadLine());
-            for (int i = 2; i < a / 2; i++)
-            {
-                if (a % i == 0)
-                {
-                    ans = false;
-                }
-            }
-            if (ans)
+            if (IsPrimeNum(a))
             {
                 Console.WriteLine($@"Число {a} простое!");
             }
@@ -24,12 +16,27 @@ namespace PrimaryNum
             {
                 Console.WriteLine($@"Число {a} не является простым!");
             }
+            Console.ReadKey();
+        }
+
+        public static bool IsPrimeNum(int a)
+        {
+            bool ans = true;
+            
+            for (int i = 2; i < a / 2; i++)
+            {
+                if (a % i == 0)
+                {
+                    ans = false;
+                }
+            }
+            return ans;
+            
         }
 
         static void Main()
         {
-            IsPrymeNum();
-            Console.ReadKey();
+            MakeThatNum();
         }
     }
 }
