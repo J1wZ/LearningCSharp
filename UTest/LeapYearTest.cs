@@ -5,23 +5,23 @@ namespace UTest
     public class LeapTests
     {
 
-        [TestCase(2020,ExpectedResult = true)]
-        [TestCase(2024, ExpectedResult = true)]
-        public bool YearIsLeap(int a)
+        [TestCase(2020)]
+        [TestCase(2024)]
+        public void YearIsLeap(int a)
         {
-            return LeapYear.Programm.IsLeapYear(a);
+            Assert.IsTrue(LeapYear.Programm.IsLeapYear(a));
         }
-        [TestCase(2021, ExpectedResult = false)]
-        [TestCase(2019, ExpectedResult = false)]
-        public bool YearNotLeap(int a)
+        [TestCase(2021)]
+        [TestCase(2019)]
+        public void YearNotLeap(int a)
         {
-            return LeapYear.Programm.IsLeapYear(a);
+            Assert.IsFalse(LeapYear.Programm.IsLeapYear(a));
         }
-        [TestCase(-2021, ExpectedResult = false)]
-        [TestCase(-2020, ExpectedResult = false)]
-        public bool YearIsNeg(int a)
+        [TestCase(-2021)]
+        [TestCase(-2020)]
+        public void YearIsNeg(int a)
         {
-            return LeapYear.Programm.IsLeapYear(a);
+            Assert.IsFalse(LeapYear.Programm.IsLeapYear(a));
         }
     }
 }

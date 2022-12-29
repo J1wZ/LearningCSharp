@@ -5,23 +5,23 @@ namespace UTest
     public class PrimeNumTests
     {
 
-        [TestCase(1, ExpectedResult = true)]
-        [TestCase(2, ExpectedResult = true)]
-        public bool NumIsPrime(int a)
+        [TestCase(1)]
+        [TestCase(2)]
+        public void NumIsPrime(int a)
         {
-            return PrimaryNum.Programm.IsPrimeNum(a);
+            Assert.IsTrue(PrimaryNum.Programm.IsPrimeNum(a));
         }
-        [TestCase(4, ExpectedResult = false)]
-        [TestCase(20, ExpectedResult = false)]
-        public bool NumIsNotPrime(int a)
+        [TestCase(4)]
+        [TestCase(20)]
+        public void NumIsNotPrime(int a)
         {
-            return PrimaryNum.Programm.IsPrimeNum(a);
+            Assert.IsFalse(PrimaryNum.Programm.IsPrimeNum(a));
         }
-        [TestCase(-1, ExpectedResult = false)]
-        [TestCase(-2, ExpectedResult = false)]
-        public bool NumIsNeg(int a)
+        [TestCase(-1)]
+        [TestCase(-2)]
+        public void NumIsNeg(int a)
         {
-            return PrimaryNum.Programm.IsPrimeNum(a);
+            Assert.IsFalse(PrimaryNum.Programm.IsPrimeNum(a));
         }
 
     }
